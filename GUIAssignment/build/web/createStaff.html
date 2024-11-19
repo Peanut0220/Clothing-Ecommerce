@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+
+<html>
+
+    <style>
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        body {
+            font-family: "Ubuntu";
+            animation: 2.5s fadeIn;
+        }
+    </style>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Create Staff</title>
+    </head>
+
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <div class="container">
+
+
+            <h1>Create Staff</h1>
+            <hr>
+
+            <div class="row">
+
+                <!-- edit form column -->
+                <div class="col-md-7 personal-info">
+
+                    <h3>Personal info</h3>
+                    <form name="form1" action="addStaff" method="post">
+                        <!-- Change this to a <form> to reproduce your original issue -->
+                        <div class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="suname" class="col-lg-3 control-label">Username:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="suname" id="uname" type="text" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sfname" class="col-lg-3 control-label">First name:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="sfname" id="fname" type="text" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="slname" class="col-lg-3 control-label">Last name:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="slname" id="lname" type="text" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="semail" class="col-lg-3 control-label">Email:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="semail" id="email" type="text" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="spassword" class="col-lg-3 control-label">Password:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="spassword" id="password" type="password" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sphone" class="col-lg-3 control-label">Phone:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" name="sphone" id="phone" type="tel" value="" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-8">
+                                    <input type="submit" class="btn btn-primary" value="Save Changes" onclick="validateEmail(document.form1.semail)">                                   
+                                    <a href="staff.jsp"> <input type="button" class="btn btn-default" value="Cancel"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+    </body>
+    <script>
+        function validateEmail(emailId)
+        {
+            var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (emailId.value.match(mailformat))
+            {
+                document.form1.text1.focus();
+                return true;
+            } else
+            {
+                alert("Invalid email address.");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+    </script>
+</html>
